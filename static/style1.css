@@ -1,0 +1,60 @@
+body{
+    color: rgb(17,237,246);
+    font-family: Georgia, 'Times New Roman', Times, serif;  
+}
+
+.parent{
+    display: flex;
+}
+
+.child{
+    text-align: center;
+    margin-left: 700px;
+    margin-right: 100px;
+    padding-left: 100px;
+    margin-top: 50px;
+    background: transparent;
+    border-radius: 10px;
+    padding-right: 100px;
+    backdrop-filter:blur(5px);
+    box-shadow: 0 0 20px aqua;
+    padding-bottom: 30px;
+}
+
+.but1{
+    margin-top: 30px;
+    margin-left: 800px;
+    padding: 15px;
+    border: 30px;
+    border-radius: 10px;
+    border-color: rgb(83, 188, 233) ;
+    font-weight: bold;
+    background-color: rgb(34, 92, 230);
+    color: rgb(17,237,246);
+}
+
+.but1:hover{
+    border-color: aqua;
+    box-shadow: 0 0 10px aqua ,inset 0 0 10px;
+}
+
+.bgvideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+@media (min-aspect-ratio:16/9) {
+    .bgvideo{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio:16/9) {
+    .bgvideo{
+        width: auto;
+        height: 100%;
+    }
+}

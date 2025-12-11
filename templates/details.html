@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="/static/style1.css">
+</head>
+<body>  
+    <video autoplay loop muted plays-inline class="bgvideo">
+        <source src="/static/bgvideo.mp4" type="video/mp4">
+    </video>  
+<section class="parent">
+    <section class="child">
+        <h1>Details</h1>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% else %}
+            <p>Name: {{ name }}</p>
+            <p>UID: {{ Uid }}</p>
+            <p>Age: {{ age }}</p>
+            <p>Gender: {{ gender }}</p>
+            <p>Department: {{ dept}}</p>
+        {% endif %}
+    </section>
+</section>
+    <button onclick="window.location.href='/index'" class="but1"> home page</button>
+</body>
+</html>

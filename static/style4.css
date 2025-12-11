@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins",sans-serif;
+    color: rgb(17, 237, 246);
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.wrapper{
+    width: 420px;
+    color: #fff;
+    padding: 30px;
+    border-radius: 30px;
+    border: transparent;
+    box-shadow: 0 0 20px aqua;
+    backdrop-filter:blur(10px);
+}
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 20px 20px 20px;
+}
+.wrapper button{
+    background: rgb(17, 237, 246);
+    color: rgb(14, 60, 167);
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    font-size: medium;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-weight: 300;
+}
+.bgvideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+@media (min-aspect-ratio:16/9) {
+    .bgvideo{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio:16/9) {
+    .bgvideo{
+        width: auto;
+        height: 100%;
+    }
+}

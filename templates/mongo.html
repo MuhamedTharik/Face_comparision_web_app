@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert</title>
+    <link rel="stylesheet" href="/static/style2.css">
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            initializeWebcam();
+        });
+
+        function initializeWebcam() {
+            var video = document.getElementById('video');
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+
+            navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                video.srcObject = stream;
+            })
+            .catch(function(err) {
+                console.log("An error occurred: " + err);
+            });
+        }
+
+        function captureImage() {
+            var video = document.getElementById('video');
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Convert canvas image data to base64
+            var imgData = canvas.toDataURL('image/jpeg');
+
+            // Set the value of the hidden input field 'photo' with the base64 image data
+            document.getElementById('photo').value = imgData;
+
+            // Stop video stream
+            video.srcObject.getTracks().forEach(track => track.stop());
+
+            // Hide video element and display canvas element
+            video.style.display = 'none';
+            canvas.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <video autoplay loop muted plays-inline class="bgvideo">
+        <source src="/static/bgvideo.mp4" type="video/mp4">
+    </video>
+<div class="parent">
+    <h1>INSERT</h1>
+    <div class="vc">
+        <video id="video" class="video" width="300" height="300" autoplay ></video>
+        <canvas id="canvas" width="300" height="300" class="canvas"></canvas>
+        </div>
+        <button onclick="captureImage()">Capture</button><br><br>
+
+        <form action="/insert" method="post" enctype="multipart/form-data">
+            <label for="name">Name :</label>
+            <input type="text" id="name" name="name" style="background-color: aqua;"><br><br>
+            
+            <label for="age">Age :</label>
+            <input type="number" id="age" name="age" style="background-color: aqua;"><br><br>
+            
+            <label for="Uid">Uid :</label>
+            <input type="text" id="Uid" name="Uid" style="background-color: aqua;"><br><br>
+            
+            <label for="gender">Gender :</label>
+            <select id="gender" name="gender" style="background-color: aqua;">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br><br>
+
+            <label for="dept">Department : </label>
+            <select id="deptm" name="deptm" style="background-color: aqua;">
+                <option value="cyber security">Cybersecurity</option>
+                <option value="aiml">AIML</option>
+                <option value="aida">AIDA</option>
+                <option value="med">MEDICAL Engineering</option>
+            </select><br><br>
+            
+            <input type="hidden" id="photo" name="photo" style="background-color: aqua;">
+            <input type="submit" value="Submit" class="but3">
+        </form>
+</div>
+</body>
+</html>
